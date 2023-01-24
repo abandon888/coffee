@@ -6,7 +6,16 @@ const city = ref('')
 const weather = ref(null)
 const apiKey = '8e6a24c06cfdff1c91fa56a2ef3121e2'
 
+const refresh = () => {
+  if(localStorage.getItem('city')) {
+    weather.value = JSON.parse(localStorage.getItem('city'))
+  }
+}
 const getWeather = async () => {
+  // if(localStorage.getItem('city')) {
+  //   weather.value = JSON.parse(localStorage.getItem('city'))
+  //   return
+  // }
   if (!city.value) {
     alert('Please enter a city name')
     return
@@ -14,6 +23,7 @@ const getWeather = async () => {
   try {
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`)
     weather.value = response.data
+    localStorage.setItem('city', JSON.stringify(weather.value))
     console.log(response.data)
   } catch (error) {
     if (error.response.status === 404) {
@@ -22,7 +32,11 @@ const getWeather = async () => {
     }
   }
 }
+
+refresh()
 </script>
+
+
 
 <template>
   <div class="bg">
