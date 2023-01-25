@@ -1,7 +1,15 @@
-# Vue 3 + Vite
+# Border-radius Previewer
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+**Tier:** 1-Beginner
 
-## Recommended IDE Setup
+The border-radius property can have multiple values changed. Preview how the shape looks while changing these values.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## User Stories
+
+-   [x] User can see a box which has a `border-radius` property applied to it
+-   [x] User can change the 4 `border-radius` values that are applied to the box (top-left, top-right, bottom-left, bottom-right)
+-   [x] User can copy the resulting CSS to the clipboard
+
+## Bonus features
+
+-   [ ] User can change all 8 possible values of the border-radius in order to create a complex shape
