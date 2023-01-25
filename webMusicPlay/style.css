@@ -1,0 +1,52 @@
+body {
+  background-image: url(img/image.png);
+  background-size: cover;
+}
+body .header {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+body .header .logo {
+  height: 10vh;
+  margin-left: 75px;
+}
+body .header .nav {
+  display: flex;
+  margin-left: 45%;
+  margin-right: 75px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #605d5d;
+}
+body .header .nav div {
+  margin-left: 18px;
+}
+body .center {
+  margin-top: 20vh;
+  margin-left: 90px;
+  display: flex;
+  align-items: center;
+}
+body .center .text {
+  font-size: 50px;
+  line-height: 70px;
+  color: white;
+  width: 60px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+body .center .playMusic {
+  display: flex;
+  align-items: center;
+  margin-left: 60vw;
+  color: #605d5d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body .center .playMusic .play {
+  background-image: url(img/play.png);
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  margin-left: 10px;
+}

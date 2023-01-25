@@ -11,6 +11,7 @@ const refresh = () => {
     weather.value = JSON.parse(localStorage.getItem('city'))
   }
 }
+//在vue语法中，箭头函数中的this指向的是window，所以在这里使用function
 const getWeather = async () => {
   // if(localStorage.getItem('city')) {
   //   weather.value = JSON.parse(localStorage.getItem('city'))
