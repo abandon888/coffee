@@ -44,7 +44,6 @@ body .center .playMusic {
   font-family: Arial, Helvetica, sans-serif;
 }
 body .center .playMusic .play {
-  background-image: url(img/play.png);
   width: 50px;
   height: 50px;
   background-size: cover;
