@@ -98,7 +98,7 @@ function App() {
        <InputNumber className="calculator__display__input" value={theInput} readOnly/>
        <InputNumber className="calculator__display__input" value={theOutput} readOnly/>
       </div>
-      <div className="calculator__buttons">
+      <div className="calculator_buttons">
         <div className="calculator__buttons__row">
           <Button className="calculator__buttons__row__button" onClick={()=>handleClear()}>AC</Button>
           {/* <Button className="calculator__buttons__row__button">+/-</Button>
