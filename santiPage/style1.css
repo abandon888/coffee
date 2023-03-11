@@ -1,0 +1,102 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+body:after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: #010101;
+  clip-path: polygon(0 100%, 0 0, 100% 0, 70% 100%);
+  width: 60%;
+  z-index: -1;
+}
+body .card {
+  background-color: #fff;
+  height: 60vh;
+  width: 60vw;
+  border-radius: 25px 0 0 25px;
+  box-shadow: 4px 4px 10px #555555;
+  display: flex;
+  flex-direction: row;
+}
+body .card .left {
+  width: 60%;
+  margin-top: 30px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body .card .left .leftTitle {
+  font-weight: 700;
+  font-size: 24px;
+  margin-left: 20px;
+}
+body .card .left .leftTip {
+  margin-top: 10px;
+  font-size: 12px;
+  margin-left: 20px;
+}
+body .card .left form {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  height: 50%;
+}
+body .card .left form .userName {
+  width: 60%;
+  height: 30px;
+  outline: none;
+  border: none;
+}
+body .card .left form .passWord {
+  width: 60%;
+  height: 30px;
+  outline: none;
+  border: none;
+}
+body .card .left form label {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+}
+body .card .left form label #check {
+  margin-left: 0;
+  align-self: flex-start;
+}
+body .card .left form .formFoot button {
+  background-color: #010101;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 20px;
+}
+body .card .left form .formFoot a {
+  text-decoration: none;
+  color: #010101;
+  font-size: 12px;
+  margin-left: 80px;
+}
+body .card .left .thirdAccept .acceptTip {
+  font-size: 12px;
+}
+body .card .left .thirdAccept .social-buttons {
+  display: flex;
+}
+body .card .left .thirdAccept .social-buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: #821616;
+}
+body .card .left .thirdAccept .social-buttons .wechat {
+  background-color: green;
+}
