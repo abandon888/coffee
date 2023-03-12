@@ -1,80 +1,79 @@
 @theme-color: #010101;
-body{
+body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  &:after{
+  &:after {
     content: '';
     position: fixed;
     inset: 0;
-    background-color:@theme-color;
-    clip-path: polygon(0 100%,0 0,100% 0,70% 100%);
+    background-color: @theme-color;
+    clip-path: polygon(0 100%, 0 0, 100% 0, 70% 100%);
     width: 60%;
-    z-index:-1;
+    z-index: -1;
   }
-  .card{
+  .card {
     background-color: #fff;
     height: 60vh;
     width: 60vw;
-    //border: #010101 3px solid;
     border-radius: 25px 0 0 25px;
     box-shadow: 4px 4px 10px rgb(85, 85, 85);
     display: flex;
     flex-direction: row;
-    .left{
-      width: 60%;
+    .left {
+      width: 50%;
       margin-top: 30px;
       margin-left: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      .leftTitle{
+      .leftTitle {
         font-weight: 700;
         font-size: 24px;
         margin-left: 20px;
       }
-      .leftTip{
+      .leftTip {
         margin-top: 10px;
         font-size: 12px;
         margin-left: 20px;
       }
-      form{
+      form {
         margin-left: 20px;
         display: flex;
         flex-direction: column;
         width: 100%;
         justify-content: space-between;
         height: 50%;
-        .userName{
+        .userName {
           width: 60%;
           height: 30px;
           outline: none;
           border: none;
         }
-        .passWord{
+        .passWord {
           width: 60%;
           height: 30px;
           outline: none;
           border: none;
         }
-        label{
+        label {
           font-size: 10px;
           display: flex;
           align-items: center;
-          #check{
+          #check {
             margin-left: 0;
             align-self: flex-start;
           }
         }
-        .formFoot{
-          button{
+        .formFoot {
+          button {
             background-color: @theme-color;
             color: #fff;
-            padding:10px 24px;
+            padding: 10px 24px;
             border-radius: 20px;
           }
-          a{
+          a {
             text-decoration: none;
             color: @theme-color;
             font-size: 12px;
@@ -82,30 +81,63 @@ body{
           }
         }
       }
-      .thirdAccept{
-        .acceptTip{
+      .thirdAccept {
+        margin-bottom: 20px;
+        .acceptTip {
           font-size: 12px;
+          margin-bottom: 10px;
+          margin-left: 15px;
         }
-        .social-buttons{
+        .social-buttons {
           display: flex;
-
-          a{
+          a {
             display: flex;
+            margin-right: 10px;
             justify-content: center;
-            //text-align: center;
             align-items: center;
-            display: block;
             border-radius: 50%;
             width: 36px;
             height: 36px;
-            color: rgb(130, 22, 22);
-      
+            color: white;
           }
-          .wechat{
+          .wechat {
             background-color: green;
-
+          }
+          .twitter{
+            background-color: #4aa2ee;
+          }
+          .github{
+            background-color: black;
           }
         }
+      }
+    }
+    .right{
+      min-width: 50%;
+      background-image: url('./bg.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      //z-index: 0;
+      //filter: blur();
+      .rightTitle{
+        font-size: 24px;
+        margin-top: 30%;
+      }
+      .rightTip{
+        margin-top:24px
+      }
+      .create{
+        border: #010101 solid 2px;
+        background-image: inherit;
+        border-radius: 16px;
+        width: 56px;
+        height: 32px;
+        margin-top:24px;
       }
     }
   }
