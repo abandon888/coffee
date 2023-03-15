@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background-color: #111319;
+}
+body .container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 70%;
+  height: 500px;
+  background-image: url(Images/background.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+}
+body .container::before {
+  content: "";
+  width: 450px;
+  height: 700px;
+  background-image: linear-gradient(270deg, rgba(17, 19, 25, 0) 0%, rgba(17, 19, 25, 0.05) 16%, rgba(17, 19, 25, 0.2) 30%, rgba(17, 19, 25, 0.39) 43%, rgba(17, 19, 25, 0.61) 55%, rgba(17, 19, 25, 0.8) 68%, rgba(17, 19, 25, 0.95) 82%, #111319 98%);
+  position: absolute;
+  right: 411px;
+  top: 0;
+}
+body .container::after {
+  content: "";
+  width: 1109px;
+  height: 150px;
+  background-image: linear-gradient(180deg, rgba(17, 19, 25, 0) 0%, rgba(17, 19, 25, 0.05) 16%, rgba(17, 19, 25, 0.2) 30%, rgba(17, 19, 25, 0.39) 43%, rgba(17, 19, 25, 0.61) 55%, rgba(17, 19, 25, 0.8) 68%, rgba(17, 19, 25, 0.95) 82%, #111319 98%);
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+}
+body section {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 360px;
+  overflow: hidden;
+  box-shadow: 1px 3px 20px 10px #000;
+  border-radius: 10px;
+}
+body section .poster {
+  width: 240px;
+  height: 360px;
+  background-image: url(Images/kuangbiao.jpeg);
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  width: 100%;
+  transition: 0.5s;
+}
+body section .head {
+  position: absolute;
+  bottom: 17%;
+  color: white;
+  font-size: 18px;
+  left: 5%;
+  z-index: 1;
+}
+body section .vip {
+  position: absolute;
+  bottom: 11%;
+  background-color: #e6a463;
+  font-weight: 600;
+  font-size: 10px;
+  left: 5%;
+  padding: 2px ;
+  border-radius: 2px;
+  z-index: 1;
+}
+body section .rating {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  z-index: 1;
+}
+body section .rating i {
+  color: #19b634;
+  margin-right: 2px;
+}
+body section .rating span {
+  color: white;
+  font-weight: 600;
+  margin-left: 2px;
+}
+body section .tab {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  color: white;
+  font-size: 12px;
+  z-index: 1;
+}
+body section .tab span {
+  background-color: #3f3d3d;
+  border-radius: 40%;
+  padding: 3px;
+  margin-right: 8px;
+}
+body section::after {
+  content: '';
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, #000 25%, transparent);
+}
+body section:hover {
+  filter: blur(3px);
+  transition: 0.5s;
+}
+body section:hover .poster {
+  transform: translateY(-50px);
+}
+body section:hover .detail {
+  z-index: 2;
+  bottom: 0;
+}
