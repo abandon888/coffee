@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.head .title {
+  height: 56px;
+  width: 100%;
+  background-color: #2e7eee;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head .title .logo {
+  margin-left: 30px;
+  font-size: 24px;
+}
+.head .title .titleContent {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+.head .ava {
+  margin-right: 30px;
+}
+.head .tab {
+  background-color: wheat;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head .tab span {
+  margin-left: 20px;
+}
+.head .tab .active::after {
+  content: 'y';
+  position: relative;
+  background-color: #2e7eee;
+  margin-top: 86px;
+  width: 30px;
+  height: 8px;
+}
+.head .tab .active {
+  color: #2e7eee;
+}
