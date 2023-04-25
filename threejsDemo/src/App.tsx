@@ -9,8 +9,10 @@ function App() {
   return (
     <>
       <div id="canvas-container">
-        <Canvas>
+        <Canvas camera={{fov:35,near:0.1,far:100,position:[0,0,5]}}>
+          {/* 环境光 */}
           <ambientLight intensity={0.1} />
+          {/* 直接光 */}
           <directionalLight color="red" position={[0, 0, 5]} />
           <mesh>
             <boxGeometry args={[2,2,2]}/>
