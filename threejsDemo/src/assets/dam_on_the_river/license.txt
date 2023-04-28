@@ -1,0 +1,11 @@
+Model Information:
+* title:	Dam on the river
+* source:	https://sketchfab.com/3d-models/dam-on-the-river-0157dacd9f214b20938f002f76aeecbb
+* author:	FPSunreal (https://sketchfab.com/FPSunreal)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Dam on the river" (https://sketchfab.com/3d-models/dam-on-the-river-0157dacd9f214b20938f002f76aeecbb) by FPSunreal (https://sketchfab.com/FPSunreal) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

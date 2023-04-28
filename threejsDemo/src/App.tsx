@@ -2,8 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Box from './Box.tsx'
+import Box from './world/Box.tsx'
 import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
+import Demo from './world/sence.tsx'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <ambientLight />
           <pointLight position={[10, 10, 10]} /> <Box position={[-1.2, 0, 0]} />{' '}
           <Box position={[1.2, 0, 0]} />{' '}
+          <Demo />
         </Canvas>
       </div>
     </>
