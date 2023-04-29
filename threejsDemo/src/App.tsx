@@ -1,32 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Box from './world/Box.tsx'
-import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
-import Demo from './world/sence.tsx'
+/* eslint-disable */
+import * as THREE from 'three'
+import * as React from 'react'
+import { useRef, useState } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { World } from './World1/World.js';
 
-function App() {
+function Box(props: JSX.IntrinsicElements['mesh']) {
+  // This reference will give us direct access to the THREE.Mesh object
+  const ref = useRef<THREE.Mesh>(null!)
+  // Hold state for hovered and clicked events
+  const [hovered, hover] = useState(false)
+  const [clicked, click] = useState(false)
+  // Rotate mesh every frame, this is outside of React without overhead
+  useFrame((state, delta) => (ref.current.rotation.x += 0.01))
+
   return (
-    <>
-      <div id="canvas-container">
-        <Canvas camera={{fov:35,near:0.1,far:100,position:[0,0,5]}}>
-          {/* 环境光 */}
-          <ambientLight intensity={0.1} />
-          {/* 直接光 */}
-          <directionalLight color="red" position={[0, 0, 5]} />
-          <mesh>
-            <boxGeometry args={[2,2,2]}/>
-            <meshStandardMaterial color={'green'}/>
-          </mesh>
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} /> <Box position={[-1.2, 0, 0]} />{' '}
-          <Box position={[1.2, 0, 0]} />{' '}
-          {/* <Demo /> */}
-        </Canvas>
-      </div>
-    </>
+    <mesh
+      {...props}
+      ref={ref}
+      scale={clicked ? 1.5 : 1}
+      onClick={(event) => click(!clicked)}
+      onPointerOver={(event) => hover(true)}
+      onPointerOut={(event) => hover(false)}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+    </mesh>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <Canvas>
+      <ambientLight intensity={0.5} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <pointLight position={[-10, -10, -10]} />
+      <Box position={[-1.2, 0, 0]} />
+      <Box position={[1.2, 0, 0]} />
+    </Canvas>
+  )
+}
