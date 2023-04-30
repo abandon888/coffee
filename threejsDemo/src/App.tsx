@@ -6,6 +6,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 //import { World } from './World1/World.js'
 import Experience from './world/Experience.js'
 
+
 function Box(props: JSX.IntrinsicElements['mesh']) {
   // This reference will give us direct access to the THREE.Mesh object
   const ref = useRef<THREE.Mesh>(null!)
@@ -32,7 +33,21 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 export default function App() {
   return (
     <>
-      <Canvas>
+      <Canvas
+        dir='2'
+        // orthographic
+        //flat
+        gl={ { antialias: true,
+        toneMapping: THREE.ACESFilmicToneMapping,
+        outputEncoding: THREE.sRGBEncoding,
+      } }
+        camera={{
+          position: [3, 2, 6],
+          //  zoom: 50,
+          fov: 45,
+          near: 0.1,
+          far: 200,
+        }}>
         <Experience />
       </Canvas>
     </>
