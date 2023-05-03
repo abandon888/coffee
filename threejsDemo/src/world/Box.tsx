@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
 
+//这里对于Box的封装不错，能像原生一样调用
 function Box(props: ThreeElements['mesh']) {
   const mesh = useRef<THREE.Mesh>(null!)
   const [hovered, setHover] = useState(false)

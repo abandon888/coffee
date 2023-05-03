@@ -11,6 +11,7 @@ import {
   MeshReflectorMaterial
 } from '@react-three/drei'
 import CustomObject from './CustomObject'
+import Box from './Box'
 
 //console.log(OrbitControls)
 //convert the OrbitControls(threejs component) to a React component
@@ -67,6 +68,7 @@ export default function Experience() {
         {/* woc,这个transformControls拖曳控制好强 */}
         <TransformControls object={cubeRef} mode="rotate" />
       </group>
+      <Box position={[-1.2, 0, 0]} />
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
         <planeGeometry args={[1, 1]} />
         <MeshReflectorMaterial color={'lightblue'} mirror={0.5}/>
