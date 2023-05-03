@@ -12,6 +12,8 @@ import {
 } from '@react-three/drei'
 import CustomObject from './CustomObject'
 import Box from './Box'
+import { useControls,button } from 'leva'
+import { Perf } from 'r3f-perf'
 
 //console.log(OrbitControls)
 //convert the OrbitControls(threejs component) to a React component
@@ -34,11 +36,32 @@ export default function Experience() {
     //cubeRef.current.rotation.y += delta
     //groupRef.current.rotation.y += delta
   })
+  //可以解构赋值，position换为x,y,创建文件名称为sphere
+  const {position,color,visible} = useControls('sphere',{
+    color: '#ff0000',
+    position:{
+      value:{x:-2,y:0},
+      min:-4,
+      max:4,
+      step:0.1,
+    },
+    visible: true,
+    clickMe:button(()=>{console.log('ok')}),
+    choice:{options:['a','b','c']}
+  })
+  const box = useControls('box',{
+    color:'#fff'
+  })
+  const perf = useControls('Perf',{
+    visible:true
+  })
   return (
     <>
       {/* 调用了orbitControls才能用鼠标控制,通过makeDefault实现在orbitControl和transferControl的切换 */}
       <OrbitControls makeDefault />
       <ambientLight intensity={0.5} />
+      {perf.visible? <Perf position='top-left' />:null}
+     
       <directionalLight intensity={1.5} position={[1, 2, 3]} />
       <group ref={groupRef}>
         <PivotControls anchor={[0, 0, 0]} depthTest={false}>
@@ -63,18 +86,18 @@ export default function Experience() {
           <boxGeometry />
           {/* careful about this args has {[{}]} */}
           {/* <meshBasicMaterial args={[{color:'red',wireframe:true}]}/> */}
-          <meshStandardMaterial color={'mediumpurple'} />
+          <meshStandardMaterial color={box.color} />
         </mesh>
         {/* woc,这个transformControls拖曳控制好强 */}
         <TransformControls object={cubeRef} mode="rotate" />
       </group>
-      <Box position={[-1.2, 0, 0]} />
+      <Box position={[position.x,position.y,2]} visible={visible}/>
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
         <planeGeometry args={[1, 1]} />
-        <MeshReflectorMaterial color={'lightblue'} mirror={0.5}/>
+        <meshStandardMaterial color={color}/>
       </mesh>
-      <CustomObject />
-      <Float position={[0, 1, 0]} speed={5} floatIntensity={2}>
+      {/* <CustomObject /> */}
+      {/* <Float position={[0, 1, 0]} speed={5} floatIntensity={2}>
       <Text
         position={[0, 2, -4]}
         fontSize={1}
@@ -84,7 +107,7 @@ export default function Experience() {
         {' '}
         I Love R3F
       </Text>
-      </Float>
+      </Float> */}
     </>
   )
 }

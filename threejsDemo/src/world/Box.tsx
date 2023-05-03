@@ -8,7 +8,7 @@ function Box(props: ThreeElements['mesh']) {
   const mesh = useRef<THREE.Mesh>(null!)
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
-  useFrame((state, delta) => (mesh.current.rotation.x += delta))
+  //useFrame((state, delta) => (mesh.current.rotation.x += delta))
   return (
     <mesh
       {...props}
