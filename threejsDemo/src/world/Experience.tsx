@@ -8,7 +8,8 @@ import {
   Html,
   Text,
   Float,
-  MeshReflectorMaterial
+  MeshReflectorMaterial,
+  useHelper
 } from '@react-three/drei'
 import CustomObject from './CustomObject'
 import Box from './Box'
@@ -26,6 +27,7 @@ export default function Experience() {
   const cubeRef = useRef<THREE.Mesh>(null!)
   const groupRef = useRef<THREE.Group>(null!)
   const sphereRef = useRef<THREE.Mesh>(null!)
+  const directionalLight = useRef<THREE.DirectionalLight>(null!)
   //const cube1Ref = useRef<THREE.Mesh>(null!)
   useFrame((state, delta) => {
     //console.log(state.clock)
@@ -57,6 +59,7 @@ export default function Experience() {
   })
   return (
     <>
+      <color args={['ivory']} attach='background'/>
       {/* 调用了orbitControls才能用鼠标控制,通过makeDefault实现在orbitControl和transferControl的切换 */}
       <OrbitControls makeDefault />
       <ambientLight intensity={0.5} />
