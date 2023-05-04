@@ -15,6 +15,7 @@ import CustomObject from './CustomObject'
 import Box from './Box'
 import { useControls,button } from 'leva'
 import { Perf } from 'r3f-perf'
+import * as THREE from 'three'
 
 //console.log(OrbitControls)
 //convert the OrbitControls(threejs component) to a React component
@@ -29,6 +30,8 @@ export default function Experience() {
   const sphereRef = useRef<THREE.Mesh>(null!)
   const directionalLight = useRef<THREE.DirectionalLight>(null!)
   //const cube1Ref = useRef<THREE.Mesh>(null!)
+
+  useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
   useFrame((state, delta) => {
     //console.log(state.clock)
     const angle = state.clock.getElapsedTime()
@@ -65,7 +68,7 @@ export default function Experience() {
       <ambientLight intensity={0.5} />
       {perf.visible? <Perf position='top-left' />:null}
      
-      <directionalLight intensity={1.5} position={[1, 2, 3]} />
+      <directionalLight intensity={1.5} position={[1, 2, 3]} ref={directionalLight}  castShadow/>
       <group ref={groupRef}>
         <PivotControls anchor={[0, 0, 0]} depthTest={false}>
           <mesh position-x={-2} ref={sphereRef}>

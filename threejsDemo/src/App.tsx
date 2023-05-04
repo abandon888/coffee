@@ -6,6 +6,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 //import { World } from './World1/World.js'
 import Experience from './world/Experience.js'
 import { Leva } from 'leva'
+import World1 from './world/World.js'
 
 export default function App() {
   const created = ({scene}:any)=>{
@@ -22,6 +23,7 @@ export default function App() {
       //   toneMapping: THREE.ACESFilmicToneMapping,
       //   outputEncoding: THREE.sRGBEncoding,
       // } }
+        shadows
         camera={{
           position: [3, 2, 6],
           //  zoom: 50,
@@ -31,7 +33,8 @@ export default function App() {
         }}
         onCreated={created}
         >
-        <Experience />
+        {/* <Experience /> */}
+        <World1 />
       </Canvas>
     </>
   )
