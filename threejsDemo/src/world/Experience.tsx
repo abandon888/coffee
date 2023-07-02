@@ -9,11 +9,11 @@ import {
   Text,
   Float,
   MeshReflectorMaterial,
-  useHelper
+  useHelper,
 } from '@react-three/drei'
 import CustomObject from './CustomObject'
 import Box from './Box'
-import { useControls,button } from 'leva'
+import { useControls, button } from 'leva'
 import { Perf } from 'r3f-perf'
 import * as THREE from 'three'
 
@@ -42,33 +42,40 @@ export default function Experience() {
     //groupRef.current.rotation.y += delta
   })
   //可以解构赋值，position换为x,y,创建文件名称为sphere
-  const {position,color,visible} = useControls('sphere',{
+  const { position, color, visible } = useControls('sphere', {
     color: '#ff0000',
-    position:{
-      value:{x:-2,y:0},
-      min:-4,
-      max:4,
-      step:0.1,
+    position: {
+      value: { x: -2, y: 0 },
+      min: -4,
+      max: 4,
+      step: 0.1,
     },
     visible: true,
-    clickMe:button(()=>{console.log('ok')}),
-    choice:{options:['a','b','c']}
+    clickMe: button(() => {
+      console.log('ok')
+    }),
+    choice: { options: ['a', 'b', 'c'] },
   })
-  const box = useControls('box',{
-    color:'#fff'
+  const box = useControls('box', {
+    color: '#fff',
   })
-  const perf = useControls('Perf',{
-    visible:true
+  const perf = useControls('Perf', {
+    visible: true,
   })
   return (
     <>
-      <color args={['ivory']} attach='background'/>
+      <color args={['ivory']} attach="background" />
       {/* 调用了orbitControls才能用鼠标控制,通过makeDefault实现在orbitControl和transferControl的切换 */}
       <OrbitControls makeDefault />
       <ambientLight intensity={0.5} />
-      {perf.visible? <Perf position='top-left' />:null}
-     
-      <directionalLight intensity={1.5} position={[1, 2, 3]} ref={directionalLight}  castShadow/>
+      {perf.visible ? <Perf position="top-left" /> : null}
+
+      <directionalLight
+        intensity={1.5}
+        position={[1, 2, 3]}
+        ref={directionalLight}
+        castShadow
+      />
       <group ref={groupRef}>
         <PivotControls anchor={[0, 0, 0]} depthTest={false}>
           <mesh position-x={-2} ref={sphereRef}>
@@ -97,10 +104,10 @@ export default function Experience() {
         {/* woc,这个transformControls拖曳控制好强 */}
         <TransformControls object={cubeRef} mode="rotate" />
       </group>
-      <Box position={[position.x,position.y,2]} visible={visible}/>
+      <Box position={[position.x, position.y, 2]} visible={visible} />
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
         <planeGeometry args={[1, 1]} />
-        <meshStandardMaterial color={color}/>
+        <meshStandardMaterial color={color} />
       </mesh>
       {/* <CustomObject /> */}
       {/* <Float position={[0, 1, 0]} speed={5} floatIntensity={2}>
