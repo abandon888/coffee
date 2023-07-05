@@ -5,11 +5,11 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 export default function modelExp() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const model: THREE.Group = useLoader(
-    GLTFLoader,
-    '../assets/models/Flamingo.glb'
-  )
-  console.log(model)
+  // const model: THREE.Group = useLoader(
+  //   GLTFLoader,
+  //   '../assets/models/Flamingo.glb'
+  // )
+  // console.log(model)
   return (
     <>
       <OrbitControls makeDefault />
