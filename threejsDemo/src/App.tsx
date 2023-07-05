@@ -5,7 +5,7 @@ import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 //import { World } from './World1/World.js'
 import Experience from './world/Experience.js'
-import ModelExp from './world/modelExp.js'
+import ModelExp from './world/modelDemo/modelExp.js'
 import { Leva } from 'leva'
 import World1 from './world/World.js'
 

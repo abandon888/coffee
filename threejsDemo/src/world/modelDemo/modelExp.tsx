@@ -1,23 +1,12 @@
 import { OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { useLoader } from '@react-three/fiber'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import Model from './model'
+import { Suspense } from 'react'
+import Placeholder from './Placeholder'
 
 export default function modelExp() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
 
-  const model: THREE.Group = useLoader(
-    GLTFLoader,
-    './Flamingo.glb',
-    (loader) => {
-      //console.log(loader)
-      const dracoLoader = new DRACOLoader()
-      dracoLoader.setDecoderPath('./draco/')
-      loader.setDRACOLoader(dracoLoader)
-    }
-  )
-  console.log(model)
   return (
     <>
       <OrbitControls makeDefault />
@@ -28,7 +17,14 @@ export default function modelExp() {
         <planeGeometry args={[1, 1]} />
         <meshStandardMaterial color="greenyellow" />
       </mesh>
-      <primitive object={model.scene} />
+      <Suspense
+        //模型懒加载
+        fallback={
+          //并封装传参组件
+          <Placeholder position-y={-1} rotation-x={-Math.PI * 0.5} scale={2} />
+        }>
+        <Model />
+      </Suspense>
       <Perf position="top-left" />
     </>
   )
