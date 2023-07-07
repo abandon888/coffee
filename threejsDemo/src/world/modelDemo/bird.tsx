@@ -7,6 +7,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js'
 // import React, { useRef } from "react";
 // import { useGLTF, useAnimations } from "@react-three/drei";
+import { useEffect } from 'react'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,7 +24,17 @@ export function Bird(props: any) {
   const { nodes, materials, animations } = useGLTF(
     '/Flamingo.glb'
   ) as GLTFResult
+  console.log(animations)
   const { actions } = useAnimations(animations, group)
+  useEffect(() => {
+    console.log(actions)
+    animations.forEach((clip) => {
+      const action = actions[clip.name]
+      if (action) {
+        action.play()
+      }
+    })
+  }, [actions])
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
