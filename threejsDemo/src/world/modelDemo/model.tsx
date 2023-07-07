@@ -15,16 +15,16 @@ export default function Model() {
   //   }
   // )
   // console.log(model)
-  //const model: any = useGLTF('./家园设计组.gltf')
-  const model: any = useGLTF('./Flamingo.glb')
+  const model: any = useGLTF('./家园设计组-processed.gltf')
+  //const model: any = useGLTF('./Flamingo.glb')
   return (
     <>
-      <Clone object={model.scene} position-y={6} />
-      <Clone object={model.scene} position-y={3} />
       <Clone object={model.scene} position-y={1} />
+      {/* <Clone object={model.scene} position-y={3} />
+      <Clone object={model.scene} position-y={1} /> */}
     </>
   )
 }
 
-//useGLTF.preload('./家园设计组.gltf')
-useGLTF.preload('./Flamingo.glb')
+useGLTF.preload('./家园设计组-processed.gltf')
+//useGLTF.preload('./Flamingo.glb')
