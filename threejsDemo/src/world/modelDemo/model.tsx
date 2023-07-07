@@ -15,6 +15,6 @@ export default function Model() {
   //   }
   // )
   // console.log(model)
-  const model: any = useGLTF('./Flamingo.glb')
-  return <primitive object={model.scene} scale={5} position-y={-1} />
+  const model: any = useGLTF('./家园设计组.gltf')
+  return <primitive object={model.scene}  position-y={1} />
 }
