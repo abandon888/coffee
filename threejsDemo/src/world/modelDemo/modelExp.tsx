@@ -3,6 +3,7 @@ import { Perf } from 'r3f-perf'
 import Model from './model'
 import { Suspense } from 'react'
 import Placeholder from './Placeholder'
+import { Bird } from './bird'
 
 export default function modelExp() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -23,7 +24,8 @@ export default function modelExp() {
           //并封装传参组件
           <Placeholder position-y={-1} rotation-x={-Math.PI * 0.5} scale={2} />
         }>
-        <Model />
+        {/* <Model /> */}
+        <Bird position-y={5} />
       </Suspense>
       <Perf position="top-left" />
     </>
