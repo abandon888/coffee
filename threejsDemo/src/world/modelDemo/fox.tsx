@@ -1,10 +1,12 @@
 import { useGLTF, useAnimations } from '@react-three/drei'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useControls } from 'leva'
+import { Modal } from 'antd'
 
 export default function Fox() {
   const fox = useGLTF('./Fox/Fox/glTF/Fox.gltf')
   const animations = useAnimations(fox.animations, fox.scene)
+  const [modal2Open, setModal2Open] = useState(false)
   //console.log(animations)
 
   const { animationName } = useControls({
@@ -35,6 +37,23 @@ export default function Fox() {
     }
   }, [animationName, animations])
   return (
-    <primitive object={fox.scene} scale={0.02} position={[-2.5, -1, 2.5]} />
+    <>
+      <primitive
+        object={fox.scene}
+        scale={0.02}
+        position={[-2.5, -1, 2.5]}
+        onClick={() => setModal2Open(true)}
+      />
+      <Modal
+        title="Vertically centered modal dialog"
+        centered
+        open={modal2Open}
+        onOk={() => setModal2Open(false)}
+        onCancel={() => setModal2Open(false)}>
+        <p>some contents...</p>
+        <p>some contents...</p>
+        <p>some contents...</p>
+      </Modal>
+    </>
   )
 }

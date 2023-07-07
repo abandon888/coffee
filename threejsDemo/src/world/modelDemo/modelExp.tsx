@@ -26,8 +26,8 @@ export default function modelExp() {
           <Placeholder position-y={-1} rotation-x={-Math.PI * 0.5} scale={2} />
         }>
         <Model />
-        {/* <Bird position-y={5} />
-        <Fox /> */}
+        {/* <Bird position-y={5} /> */}
+        <Fox />
       </Suspense>
       <Perf position="top-left" />
     </>
